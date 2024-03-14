@@ -2,33 +2,20 @@
 
 @section('title', 'Benvenuto | Home')
 
-@section('style')
-    <style>
-        main {
-            padding-inline: 50px;
-
-            h1 {
-                color: blue;
-            }
-
-            li {
-                list-style-type: disc;
-                margin-left: 1rem;
-            }
-        }
-    </style>
-@endsection
 
 @section('content')
-    <h1>{{ $greeting }}</h1>
 
-    <ul>
-        @foreach ($data as $element)
-            {{-- {{ dd($loop) }} --}}
+    {{-- {{ dd($movies)}} --}}
+    <div class="container d-flex flex-wrap row-gap-3 gap-5">
 
-            <li>
-                {{ $element['name'] }}
-            </li>
+        @foreach ($movies as $film)
+        <div class="card col-5">
+            <div class="card-body text-center">
+                <h4 class="card-title">{{$film["title"]}}</h4>
+                <p class="card-text">{{$film["date"]}}</p>
+            </div>
+        </div>
+        
         @endforeach
-    </ul>
+    </div>
 @endsection
